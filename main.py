@@ -1,4 +1,7 @@
 from selenium import webdriver
+from selenium.webdriver.chrome.service import Service #for local execution
+
+service = Service('G:\\Meu Drive\\Cursos\\Scrape-Simple-Text-with-Selenium\\chromedriver.exe')
 
 def get_driver():
   # Set option to make browsing easier
@@ -10,7 +13,7 @@ def get_driver():
   options.add_experimental_option("excludeSwitches", ["enable-automation"])
   options.add_argument("disabled-blink-features=AutomationControlled")
 
-  driver = webdriver.Chrome(options=options)
+  driver = webdriver.Chrome(service=service, options=options)
   driver.get("http://automated.pythonanywhere.com")
   return driver
 
